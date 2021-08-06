@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: myfirst-springmvc-datajpa
+  datasource:
+    url: jdbc:sqlserver://localhost:51688;databaseName=AdventureWorks2019
+    username: user12
+    password: 1234
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    show-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServerDialect
+server:
+  port: 8080
+
+geography-service:
+  username: user
+  password: user

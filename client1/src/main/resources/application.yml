@@ -1,0 +1,29 @@
+server:
+  port: 8031
+spring:
+  application:
+    name: spring-boot-30-client
+
+geography-service:
+  service-name: myfirst-springmvc-datajpa
+  username: user
+  password: user
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 100
+      permittedNumberOfCallsInHalfOpenState: 10
+      waitDurationInOpenState: 10000
+      failureRateThreshold: 60
+      eventConsumerBufferSize: 10
+      registerHealthIndicator: true
+    someShared:
+      slidingWindowSize: 50
+      permittedNumberOfCallsInHalfOpenState: 10
+  instances:
+    backendA:
+      baseConfig: default
+      waitDurationInOpenState: 5000
+    backendB:
+      baseConfig: someShared
